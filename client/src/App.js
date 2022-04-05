@@ -8,7 +8,7 @@ function App() {
 
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/api/instructor/login')
+    axios.get('http://localhost:5000/api/auth/login')
     .then(data =>{
       console.log('client',data)
     })
