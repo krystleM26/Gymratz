@@ -1,9 +1,9 @@
 require('dotenv').config()
+const server = require('./backend/api/server')
 const express = require('express')
 const path = require("path")
 
-const server = express()
-server.use(express.json())
+
 server.use(express.static(path.join(__dirname, 'client/build')))
 
 server.get('*', (req, res) => {
