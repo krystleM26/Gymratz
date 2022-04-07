@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const router = require('express').Router()
 const Users = require('../../db-model/users-model')
+const secret = require('../../../data/configSecrets')
 
 router.post('/register', (req, res, next) => {
    console.log('I work')
@@ -12,21 +13,27 @@ router.post('/register', (req, res, next) => {
       console.log(user)
       res.status(201).json(user)
     })
-    .catch(next())
+    .catch(err => res.status(400).json(err))
 })
 
 router.post('/login', (req, res, next) => {
 let {username, password} = req.body
-Users.findBy(req.body)
-    .then( user => {
-        if (user && bcrypt.compareSync(password, user.password)) {
+Users.findBy({username})
+    .first()
+    .then(user => {
+        console.log('user',user);
+        console.log('hey');
+        if (user && bcrypt.compareSync(password, user.password )) {
+            console.log('if');
+            // res.json(user);
             const token = buildToken(user)
-            res.status(200).json({ message: `Welcome ${user.username}!`, token })
+            res.status(200).json({ message: `Welcome ${user.name}!`, token})
         } else {
+            console.log('else');
             res.status(401).json({ message: 'Invalid Credentials' })
         }
     })
-    .catch(next)
+    .catch(err => res.status(400).json({msg:'error'}))
 
 })
 
@@ -39,6 +46,6 @@ function buildToken(user) {
     const options = {
         expiresIn: '2d',
     }
-    return jwt.sign(payload, secrets.JWT_SECRET, options)
+    return jwt.sign(payload, secret.JWT_SECRET, options)
 }
 module.exports = router
