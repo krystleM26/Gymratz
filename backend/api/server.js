@@ -6,7 +6,7 @@ var cors = require('cors')
 
 const authRouter = require('./auth/auth-router')
 
-
+server.use(express.json())
 server.use(cors()) 
 
 server.use('/api/auth', authRouter)

@@ -16,10 +16,10 @@ function getById(id) {
     return db('users').where('id', id).first()
 
 }
-
-async function insert(user) {
-    cond [id] = await db('users').insert(user)
-}
+async function add(user) {
+    const [id] = await db("users").insert(user)
+    return getById(id)
+  }
 
 async function update(id, changes) {
     await db('users').update(changes).where('id', id)
@@ -28,9 +28,9 @@ async function update(id, changes) {
 
 module.exports = {
     find,
-    getById,
     findBy,
     get,
     getById,
     update,
+    add,
 }
