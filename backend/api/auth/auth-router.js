@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const { JsonWebTokenError } = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const router = require('express').Router()
 const Users = require('../../db-model/users-model')
 
@@ -19,7 +19,7 @@ router.post('/login', (req, res, next) => {
 let {username, password} = req.body
 Users.findBy(req.body)
     .then( user => {
-        if (user && bcrypt.compareSync(password, password)) {
+        if (user && bcrypt.compareSync(password, user.password)) {
             const token = buildToken(user)
             res.status(200).json({ message: `Welcome ${user.username}!`, token })
         } else {
