@@ -3,7 +3,6 @@ import axios from 'axios'
 import '../App.css'
 
 const Register = () => {
-    console.log('hey')
     const [values, setValues] = useState({ username: '', password: ""})
 
         const handleChange = (e) => {

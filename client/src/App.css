@@ -25,11 +25,23 @@ input[type=text] {
   box-sizing: border-box;
 }
 
- nav li{
- 
+ nav  li{
   display: flex;
   flex-direction: row;
   justify-content: left;
  
 
+}
+
+a {
+  color:silver
+}
+
+.info{
+  display: contents;
+  width:15%;
+  border-radius: 5%;
+  border: 2px solid black;
+  padding: 30%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
