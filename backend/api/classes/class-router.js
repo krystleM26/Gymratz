@@ -1,10 +1,11 @@
 const router = require('express').Router()
 const Classes = require('./classes-model')
-const Users = require('../../db-model/users-model')
+const Users = require('../../db-model/users-model');
+const res = require('express/lib/response');
 
 
-router.get('/', (req,res,next) => {
-    console.log('hahdhasd')
+router.get('/', (req,res) => {
+    
     console.log(Classes);
     // console.log('Hey I still work')
     Classes.get()
@@ -15,13 +16,18 @@ router.get('/', (req,res,next) => {
     })
 })
 
-// router.get('/:id', (req,res,next) => {
-//     Classes.getById(id)
-//     .then((class => {
-//         res.status(200).json(class)
-//      }).catch(err)
-//     })
-    
+router.post('/classInfo', (req,res) => {
+    console.log('Add Some Classes')
+    const {date, time, duration, type, intensity, location} = req.body
+    Classes.add({date, time, duration, type, intensity, location})
+    .then(data => {
+        res.status(201).json(data)
+    })
+    .catch(err => {
+        res.status(400).json({ message: 'Missing Feilds'})
+    })
+
+})
     
     
    
