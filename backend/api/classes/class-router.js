@@ -7,7 +7,7 @@ const res = require('express/lib/response');
 router.get('/', (req,res) => {
     
     console.log(Classes);
-    // console.log('Hey I still work')
+   
     Classes.get()
     .then(res => {
         res.status(200).json(res)
