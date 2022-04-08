@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import {
   BrowserRouter as Router,
@@ -24,11 +24,8 @@ function App() {
       })
       .catch((err) => console.log(err))
   }, [])
-  
-  const [token, setToken] = useState();
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+
+ 
 
   return (
  
@@ -55,7 +52,7 @@ function App() {
       <Route exact path='/' element={< Home />}></Route>
       <Route exact path='/login' element={< Login />}></Route>
       <Route exact path='/register' element={< Register />}></Route>
-      <Route exact path='/classes' element={< Classes />}></Route>
+      <Route exact path='/' element={< Classes />}></Route>
       </Routes>
       </div>
 
