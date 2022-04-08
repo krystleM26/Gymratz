@@ -1,18 +1,15 @@
 import React, {useState} from 'react'
 import '../App.css'
 import axios from 'axios'
+import { axiosWithAuth } from './axiosAuth'
 
-
-const Login = () => {
-  
-        
-        const [credentials, setCredentials] = useState({ username: '', password: ""})
-        const handleChange = (e) => {
-            setCredentials({...credentials, [e.target.name]: e.target.value})
-        }
+const Login = (props) => {
     
-    
-        const onSubmit = (e) => {
+    const [credentials, setCredentials] = useState({ username: '', password: ""})
+    const handleChange = (e) => {
+        setCredentials({...credentials, [e.target.name]: e.target.value})
+    }
+          const onSubmit = (e) => {
             console.log(credentials);
             e.preventDefault()
             axios
@@ -20,6 +17,7 @@ const Login = () => {
             .then((resp) => {
                 console.log('resp', resp)
                 localStorage.setItem('token', resp.data.token)
+                props.history.push('/classes')
             })
             .catch((err) => {
                 console.log(err)
