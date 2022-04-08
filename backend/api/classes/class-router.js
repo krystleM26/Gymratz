@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Classes = require('./classes-model')
-const Users = require('../../db-model/users-model');
-const res = require('express/lib/response');
+
+
 
 
 router.get('/', (req,res) => {

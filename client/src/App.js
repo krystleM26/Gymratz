@@ -1,9 +1,16 @@
 import axios from 'axios'
-import { render } from 'react-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 
-
+import Home from './components/Home'
 import { useEffect } from 'react'
 import Login from './components/Login'
+import Register from './components/Register'
+import Classes from './components/Classes'
 
 
 function App() {
@@ -18,25 +25,38 @@ function App() {
 
   return (
  
+    <Router>
+      <div className="App">
+      <ul>
+        <li>
+          <Link to='/'>HOME</Link>
+        </li>
+        <li>
+          <Link to='/login'>Login</Link>
+        </li>
+        <li>
+          <Link to='/register'>Register Today!</Link>
+        </li>
+        <li>
+          <Link to='/classes'>Classes!</Link>
+        </li>
+      </ul>
+      <Routes>
+      <Route exact path='/' element={< Home />}></Route>
+      <Route exact path='/login' element={< Login />}></Route>
+      <Route exact path='/register' element={< Register />}></Route>
+      <Route exact path='/classes' element={< Classes />}></Route>
+      </Routes>
+      </div>
 
-    <div className="App">
+    </Router>
     
-      <header className="App-header">
-      
-        <h1>Gym Ratz</h1>
-       
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Login</li>
-          <li>Register</li>
-        </ul>
-      </nav>
-      </header>
-    
-       <Login />
      
-    </div>
+    
+      
+      
+     
+   
  
   )
 }

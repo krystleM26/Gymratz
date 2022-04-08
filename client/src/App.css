@@ -25,7 +25,8 @@ input[type=text] {
   box-sizing: border-box;
 }
 
-nav li{
+ nav li{
+ 
   display: flex;
   flex-direction: row;
   justify-content: left;
