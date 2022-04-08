@@ -1,17 +1,26 @@
 html, body, #root {
   display:flex;
-  justify-content: center;
   margin: 50px;
   height: 100%;
-  background: burlywood;
+  font-weight: bold;
+  font-size: large;
+  color:darkgray;
+  /* background: burlywood; */
+  background-image: url('./img/pic11.jpg');
   font-family: Lato;
+  text-align: center;
 }
 
 .form {
   border-radius: 5%;
   border: 2px solid black;
   padding: 30%;
-  text-align: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }

@@ -2,6 +2,7 @@ import axios from 'axios'
 // import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { useEffect } from 'react'
 import Login from './components/Login'
+// import Register from './components/Register'
 
 // const Register = () => {
 //   return <h2>Register</h2>
@@ -31,6 +32,7 @@ function App() {
       </header>
     
       <Login />
+      {/* <Register /> */}
       {/* <PrivateRoute exact path="/protected" component={FriendsList} /> */}
 
         {/* <Route path='/friendsList' component={FriendsList} /> */}
