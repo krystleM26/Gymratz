@@ -1,16 +1,10 @@
 import axios from 'axios'
-// import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { render } from 'react-dom'
+
+
 import { useEffect } from 'react'
 import Login from './components/Login'
-// import Register from './components/Register'
 
-// const Register = () => {
-//   return <h2>Register</h2>
-// }
-
-// const Classes = () => {
-//   return <h2>Classes</h2>
-// }
 
 function App() {
   useEffect(() => {
@@ -23,22 +17,25 @@ function App() {
   }, [])
 
   return (
-  
+ 
 
     <div className="App">
+    
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      
         <h1>Gym Ratz</h1>
+       
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Login</li>
+          <li>Register</li>
+        </ul>
+      </nav>
       </header>
     
-      <Login />
-      {/* <Register /> */}
-      {/* <PrivateRoute exact path="/protected" component={FriendsList} /> */}
-
-        {/* <Route path='/friendsList' component={FriendsList} /> */}
-    
-
-      {/* <Route path="/login" component={Login }/> */}
+       <Login />
+     
     </div>
  
   )

@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
     })
 })
 
-router.post('/classInfo', (req,res) => {
+router.post('/classinfo', (req,res) => {
     console.log('Add Some Classes')
     const {date, time, duration, type, intensity, location} = req.body
     Classes.add({date, time, duration, type, intensity, location})

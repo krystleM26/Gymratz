@@ -24,3 +24,11 @@ input[type=text] {
   margin: 8px 0;
   box-sizing: border-box;
 }
+
+nav li{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+ 
+
+}
