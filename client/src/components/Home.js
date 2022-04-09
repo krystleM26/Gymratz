@@ -2,11 +2,9 @@ import React from 'react'
 import logo from '../img/logo.png'
 import {  Navigate } from 'react-router-dom'
 
-const Home =({users}) => {
+const Home =() => {
   
-    if (!users) {
-      return <Navigate to="/landing" replace />;
-    }
+  
     return (
 
         <div>

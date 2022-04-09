@@ -44,9 +44,9 @@ function App() {
         <li>
           <Link to='/register'>Register Today!</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/classes'>Classes!</Link>
-        </li>
+        </li> */}
       </ul>
         </nav>
       <Routes>
@@ -54,7 +54,7 @@ function App() {
       <Route exact path='/login' element={< Login />}></Route>
       <Route exact path='/register' element={< Register />}></Route>
       <Route exact path='/classes' element={< Classes />}></Route>
-      <Route path="*" element={<p>There's nothing here: 404!</p>} />
+  
       
 
       </Routes>
