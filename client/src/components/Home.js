@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../img/logo.png'
 
 const Home =() => {
     return (
@@ -6,7 +7,11 @@ const Home =() => {
           <h1>Welcome Gymratz</h1>
           <div className='info'>
 
-          <h2> We are your one stop shop to get all of the best workout classes wherever you are, just register and login and all classes will be available to you at your desired time!</h2>
+          <h2> We are your one stop shop to get all of the best workout classes anyplace in the world, simply register and/or login to schedule your next favorite workout today!</h2>
+    
+          </div>
+          <div>
+            <img src={logo} alt="Cartoon Rat Holding dumbbells" width="500" height="600"></img>
           </div>
         </div>
     )
