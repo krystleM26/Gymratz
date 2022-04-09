@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import '../App.css'
+import { useNavigate } from 'react-router'
 
 const Register = () => {
-    const [values, setValues] = useState({ username: '', password: ""})
+let navigate = useNavigate()
+
+    const [values, setValues] = useState({ name: '', username: '', password: " ", type: ''})
 
         const handleChange = (e) => {
            const { name, value } = e.target
+           console.log('name',name);
+           console.log('value',value);
             setValues({
                 ...values,
                 [name]: value
@@ -15,13 +20,14 @@ const Register = () => {
         } 
 
     const onSubmit = (e) => {
-        console.log(values);
+        console.log();
         e.preventDefault()
         axios
         .post('http://localhost:5000/api/auth/register', values)
         .then((resp) => {
             console.log('resp', resp)
             localStorage.setItem('token', resp.data.token)
+            navigate('/login')
         })
         .catch((err) => {
             console.log(err)
@@ -34,14 +40,14 @@ const Register = () => {
                 <form onSubmit={onSubmit}>
 
                 <label>Name:</label>
-                <input type="text" name="name"  onChange={handleChange} />
+                <input type="text" name="name" values={values.name}  onChange={handleChange} />
                 <label>Username:</label>
-                <input type="text" name="username"  onChange={handleChange} />
+                <input type="text" name="username" values={values.username} onChange={handleChange} />
                 <label>Password:</label>
-                <input type="password" name="password"  onChange={handleChange}  />
+                <input type="password" name="password" values={values.password}  onChange={handleChange}  />
                 <label>Role</label>
-                <input type='checkbox' name="Member"  /><label>Member</label>
-                <input type='checkbox' name="Instructor" /><label>Instructor</label>
+                <input type='checkbox' name="Member" value="member" onChange={handleChange} /><label>Member</label>
+                <input type='checkbox' name="Instructor" value="instructor" onChange={handleChange}/><label>Instructor</label>
                 <button>Register</button>
                 </form>
                

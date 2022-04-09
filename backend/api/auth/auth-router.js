@@ -7,6 +7,7 @@ const Classes = require('../classes/classes-model')
 
 router.post('/register', (req, res, next) => {
    console.log('I work')
+   console.log(req.body);
   const { name, username, password, type } = req.body
  const hash = bcrypt.hashSync(password, 8)
   Users.add({name, username, password: hash, type})
