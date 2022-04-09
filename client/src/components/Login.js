@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import '../App.css'
-import axios from 'axios'
+
 import { axiosWithAuth } from './axiosAuth'
+import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
+    let navigate = useNavigate()
     
     const [credentials, setCredentials] = useState({ username: '', password: ""})
     const handleChange = (e) => {
@@ -12,12 +14,12 @@ const Login = (props) => {
           const onSubmit = (e) => {
             console.log(credentials);
             e.preventDefault()
-            axios
+            axiosWithAuth()
             .post('http://localhost:5000/api/auth/login', credentials)
             .then((resp) => {
                 console.log('resp', resp)
                 localStorage.setItem('token', resp.data.token)
-                props.history.push('/classes')
+               navigate('/classes')
             })
             .catch((err) => {
                 console.log(err)
