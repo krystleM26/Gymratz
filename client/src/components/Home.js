@@ -1,8 +1,14 @@
 import React from 'react'
 import logo from '../img/logo.png'
+import {  Navigate } from 'react-router-dom'
 
-const Home =() => {
+const Home =({users}) => {
+  
+    if (!users) {
+      return <Navigate to="/landing" replace />;
+    }
     return (
+
         <div>
           <h1>Welcome Gymratz</h1>
           <div className='info'>

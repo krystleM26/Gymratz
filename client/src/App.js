@@ -14,8 +14,9 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Classes from './components/Classes'
 
-
 function App() {
+ 
+
   useEffect(() => {
     axios
       .get('http://localhost:5000/api/auth')
@@ -53,6 +54,9 @@ function App() {
       <Route exact path='/login' element={< Login />}></Route>
       <Route exact path='/register' element={< Register />}></Route>
       <Route exact path='/classes' element={< Classes />}></Route>
+      <Route path="*" element={<p>There's nothing here: 404!</p>} />
+      
+
       </Routes>
       </div>
 
